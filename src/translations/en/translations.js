@@ -3,6 +3,7 @@ export const translations = {
   nav: {
     home: 'Home',
     about: 'About',
+    skills: 'Skills',
     projects: 'Projects',
     contact: 'Contact'
   },
@@ -11,15 +12,16 @@ export const translations = {
   hero: {
     available: 'Available for freelance',
     greeting: "Hi, I'm",
-    name: 'Sarah',
-    description: 'A Swiss web developer crafting beautiful, functional digital experiences with modern technologies.',
+    name: 'Web developer',
+    description: 'Hi, I\'m Sarah. I\'m a <span class="font-bold text-brand">full stack web developer</span> from Switzerland, and I specialize in quality assurance.',
     viewWork: 'View My Work',
-    getInTouch: 'Get In Touch'
+    getInTouch: 'Get In Touch',
+    scrollDown: 'Scroll down'
   },
 
   // About Section
   about: {
-    title: 'About Me',
+    title: 'About',
     paragraph1: 'After 15 years of experience in the audiovisual production, marketing, and digital communications sectors, I completed my career transition into web development. I now apply my technical, creative, and interpersonal skills to develop dynamic, responsive, and user-centered web applications.',
     paragraph2: 'Having worked daily with clients from diverse backgrounds and cultures, I have developed a strong aptitude for communication and client relationship management. I consider this skill an essential asset in a professional environment.',
     paragraph3: 'Incorporating AI technologies into my development process, I continue to learn and adapt to new technologies to design effective, sustainable, and responsible solutions.',
@@ -34,6 +36,7 @@ export const translations = {
   // Skills Section
   skills: {
     title: 'Skills & Technologies',
+    titleLines: ['Skills', '&', 'Technologies'],
     description: 'Frontend, Backend, <span class="font-bold">Full Stack</span>'
   },
 

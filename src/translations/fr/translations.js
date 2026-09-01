@@ -3,6 +3,7 @@ export const translations = {
   nav: {
     home: 'Accueil',
     about: 'À propos',
+    skills: 'Skills',
     projects: 'Projets',
     contact: 'Contact'
   },
@@ -10,16 +11,17 @@ export const translations = {
   // Hero Section
   hero: {
     available: 'Disponible en freelance',
-    greeting: 'Moi, c\'est',
-    name: 'Sarah',
-    description: 'Je suis développeuse web Suisse. Je crée des expériences numériques performantes en utilisant des technologies modernes.',
+    greeting: 'Bienvenue!',
+    name: 'Développeuse web',
+    description: 'Moi, c\'est Sarah. Je suis <span class="font-bold text-brand">développeuse full stack</span> Suisse, et je me spécialise en assurance qualité.',
     viewWork: 'Voir mes projets',
-    getInTouch: 'Me contacter'
+    getInTouch: 'Me contacter',
+    scrollDown: 'Faire défiler'
   },
 
   // About Section
   about: {
-    title: 'À propos de moi',
+    title: 'A propos',
     paragraph1: 'Après 15 ans de carrière dans les secteurs de la production audiovisuelle, du marketing et de la communication digitale, j\'ai achevé ma reconversion professionnelle vers le développement web. J\'applique désormais mes compétences techniques, créatives et relationnelles pour développer des applications web dynamiques, réactives et centrées sur l\'utilisateur. ',
     paragraph2: 'Ayant travaillé quotidiennement avec des clients issus d\'environnements et de cultures très variés, j\'ai développé une forte aptitude à la communication et à la gestion de la relation client. Je considère cette compétence comme un atout essentiel dans un environnement professionnel. ',
     paragraph3: 'Incorporant l\'IA dans ma démarche de développement, je continue d\'apprendre et de m\'adapter aux nouvelles technologies pour concevoir des solutions efficaces, durables et responsables.',
@@ -34,6 +36,7 @@ export const translations = {
   // Skills Section
   skills: {
     title: 'Compétences & Technologies',
+    titleLines: ['Compétences', '&', 'Technologies'],
     description: 'Frontend, Backend, <span class="font-bold">Full Stack</span>'
   },
 

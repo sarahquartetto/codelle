@@ -1,39 +1,35 @@
-import notesImg from './assets/Notes.jpg'
-import teckelImg from './assets/Teckel.png'
+import idhImg from './assets/idh.png'
+import leCarrosseImg from './assets/le-carrosse.png'
 
 const projects = [
   {
-    slug: 'keeper-app',
+    slug: 'idh-suisse',
     title: {
-      en: 'Keeper App',
-      fr: 'Keeper App'
+      en: 'IDH Suisse',
+      fr: 'IDH Suisse'
     },
     description: {
-      en: '"Google Keep" style note-taking application with tags and search functionality.',
-      fr: 'Application de prise de notes type "Google Keep" avec tags et recherche.'
+      en: 'Website for a Swiss charity supporting local communities in Bolivia.',
+      fr: 'Site web pour une association caritative suisse qui soutient la population locale en Bolivie.'
     },
-    tags: ['React', 'Node', 'Express'],
-    demo: 'https://keeper.sarah-tech-lab.ch',
-    repo: 'https://github.com/sarahquartetto/keeper-app',
-    image: notesImg
+    tags: ['Design', 'Integration', 'Deploiement'],
+    demo: 'https://staging-idh.sarah-tech-lab.ch',
+    image: idhImg
   },
   {
-    slug: 'dachshunds-of-switzerland',
+    slug: 'le-carrosse',
     title: {
-      en: 'Dachshunds of Switzerland',
-      fr: 'Teckels de Suisse'
+      en: 'Le Carrosse',
+      fr: 'Le Carrosse'
     },
     description: {
-      en: 'A website that catalogs all the Dachshunds of Switzerland.',
-      fr: 'Un site qui répertorie tous les teckels de Suisse.'
+      en: 'Website for a Swiss e-commerce specializing in curated tableware and dining decor.',
+      fr: 'Site web pour une boutique en ligne suisse de revente dans l\'art de la table.'
     },
-    tags: ['Vite', 'React', 'CSS'],
-    demo: 'https://teckels.sarah-tech-lab.ch',
-    repo: 'https://github.com/sarahquartetto/swiss-teckels',
-    image: teckelImg
+    tags: ['Design', 'Integration', 'Deploiement'],
+    demo: 'https://le-carrosse.sarah-tech-lab.ch',
+    image: leCarrosseImg
   }
 ]
 
 export default projects
-
-
