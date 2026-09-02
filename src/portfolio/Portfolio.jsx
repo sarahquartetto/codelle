@@ -17,7 +17,7 @@ export default function Portfolio() {
       <Skills />
       <Projects />
       <Contact />
-      <footer className="relative z-10 bg-[#2f1f4d] text-stone-200 py-12 mt-16">
+      <footer className="relative z-10 bg-brand-dark text-stone-200 py-12 mt-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <div className="pt-0">

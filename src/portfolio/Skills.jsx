@@ -228,11 +228,11 @@ export default function Skills() {
   }
 
   const renderSkillList = (items) => (
-    <ul className="space-y-3 sm:space-y-4">
+    <ul className="mx-auto w-fit space-y-3 sm:space-y-4 md:mx-0 md:w-full">
       {items.map((tool) => (
         <li
           key={tool.name}
-          className="flex items-center gap-3 sm:gap-4"
+          className="flex items-center justify-center gap-3 sm:gap-4 md:justify-start"
         >
           <span className="relative flex h-9 w-9 shrink-0 overflow-hidden rounded-full border border-stone-200/70 bg-white/80 shadow-sm">
             {renderMiniIcon(tool)}
@@ -255,8 +255,8 @@ export default function Skills() {
 
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
-          <div className="relative w-fit overflow-visible md:pr-8">
-            <h2 className="relative z-10 text-5xl lg:text-6xl font-bold text-[#fffaec] text-left leading-tight title-stroke-dark">
+          <div className="relative mx-auto w-full overflow-visible md:mx-0 md:w-fit md:pr-8">
+            <h2 className="relative z-10 text-5xl lg:text-6xl font-bold text-[#fffaec] text-center md:text-left leading-tight title-stroke-dark">
               {t.skills.titleLines.map((line, index) => (
                 <span key={index} className="block">
                   {line}
@@ -265,7 +265,7 @@ export default function Skills() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-6 md:gap-x-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-6 md:gap-x-12 justify-items-center md:justify-items-stretch">
             {renderSkillList(leftColumnTools)}
             {renderSkillList(rightColumnTools)}
           </div>
@@ -285,7 +285,7 @@ export default function Skills() {
             width: 0.4rem;
             height: 0.4rem;
             border-radius: 9999px;
-            background-color: #ae86fb;
+            background-color: #8B5CF6;
             transform: translateY(-50%) scale(0);
             opacity: 0;
             animation-name: var(--skill-dot-animation);

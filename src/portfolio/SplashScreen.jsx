@@ -34,7 +34,7 @@ export default function SplashScreen({ onFinish }) {
     >
       {/* <div className="site-grain" aria-hidden="true" /> */}
       <img
-        src="/mini-logo-codelle-violet.png"
+        src="/mini-logo-codelle-violet2.png"
         alt=""
         aria-hidden="true"
         className="splash-logo-spin relative z-10 h-28 w-28 sm:h-36 sm:w-36 object-contain select-none"

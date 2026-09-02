@@ -13,7 +13,7 @@
 @layer base {
   html,
   body {
-    background-color: #2f1f4d;
+    background-color: #6D28D9;
   }
 
   h1,
@@ -59,23 +59,23 @@
   }*/}
 
   .title-stroke-dark {
-    -webkit-text-stroke: 3px #2f1f4d;
+    -webkit-text-stroke: 3px #6D28D9;
     paint-order: stroke fill;
   }
 
   @media (min-width: 1024px) {
     .title-stroke-dark {
-      -webkit-text-stroke: 3.5px #2f1f4d;
+      -webkit-text-stroke: 3.5px #6D28D9;
     }
   }
 
   .contact-form-gradient {
     background: linear-gradient(
       135deg,
-      #ae86fb 0%,
-      rgba(174, 134, 251, 0.25) 40%,
-      #ae86fb 70%,
-      rgba(174, 134, 251, 0.25) 100%
+      #8B5CF6 0%,
+      rgba(139, 92, 246, 0.25) 40%,
+      #8B5CF6 70%,
+      rgba(139, 92, 246, 0.25) 100%
     );
     background-size: 250% 250%;
     animation: contact-form-light 9s ease-in-out infinite;
@@ -96,7 +96,7 @@
   @media (prefers-reduced-motion: reduce) {
     .contact-form-gradient {
       animation: none;
-      background: linear-gradient(to bottom right, #ae86fb, rgba(174, 134, 251, 0.25));
+      background: linear-gradient(to bottom right, #8B5CF6, rgba(139, 92, 246, 0.25));
       background-size: auto;
     }
   }
@@ -274,7 +274,7 @@
   width: 0.4rem;
   height: 0.4rem;
   border-radius: 9999px;
-  background-color: #ae86fb;
+  background-color: #8B5CF6;
   transform: translateY(-50%) scale(0);
   opacity: 0;
   animation-duration: 3.2s;

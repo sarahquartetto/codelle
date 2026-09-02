@@ -79,7 +79,7 @@ export default function About() {
           </div>
 
           <div className="relative mx-auto md:mx-0 md:ml-auto w-fit">
-            <div className="w-56 h-56 sm:w-64 sm:h-64 lg:w-72 lg:h-72 rounded-full bg-gradient-to-br from-brand/10 to-brand flex items-center justify-center shadow-xl">
+            <div className="w-56 h-56 sm:w-64 sm:h-64 lg:w-72 lg:h-72 rounded-full bg-gradient-to-br from-brand/30 to-brand flex items-center justify-center shadow-xl">
               <img
                 src={sarahImg}
                 alt="Sarah Quartetto"
