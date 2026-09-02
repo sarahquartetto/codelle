@@ -8,4 +8,9 @@ export default defineConfig({
     port: 5174,
     strictPort: true,
   },
+  preview: {
+    host: '0.0.0.0',
+    port: 3000,
+    allowedHosts: ['codelle.ch', 'www.codelle.ch', '.infomaniak.site'],
+  },
 })
