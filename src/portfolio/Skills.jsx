@@ -256,7 +256,7 @@ export default function Skills() {
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div className="relative mx-auto w-full overflow-visible md:mx-0 md:w-fit md:pr-8">
-            <h2 className="relative z-10 text-5xl lg:text-6xl font-bold text-[#fffaec] text-center md:text-left leading-tight title-stroke-dark">
+            <h2 className="relative z-10 text-5xl lg:text-6xl font-bold text-site text-center md:text-left leading-tight title-stroke-dark">
               {t.skills.titleLines.map((line, index) => (
                 <span key={index} className="block">
                   {line}

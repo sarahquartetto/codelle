@@ -26,7 +26,7 @@ export default function SplashScreen({ onFinish }) {
 
   return (
     <div
-      className={`fixed inset-0 z-[100] flex items-center justify-center bg-[#fffaec] transition-opacity duration-500 ease-out ${
+      className={`fixed inset-0 z-[100] flex items-center justify-center bg-site transition-opacity duration-500 ease-out ${
         exiting ? 'pointer-events-none opacity-0' : 'opacity-100'
       }`}
       aria-hidden={exiting}

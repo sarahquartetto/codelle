@@ -56,7 +56,7 @@ export default function Contact() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-5xl lg:text-6xl font-bold text-[#fffaec] mb-4 title-stroke-dark">{t.contact.title}</h2>
+          <h2 className="text-5xl lg:text-6xl font-bold text-site mb-4 title-stroke-dark">{t.contact.title}</h2>
           <p className="text-xl text-stone-600 max-w-3xl mx-auto">{t.contact.subtitle}</p>
         </div>
 

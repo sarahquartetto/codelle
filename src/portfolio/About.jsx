@@ -66,7 +66,7 @@ export default function About() {
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div className="space-y-6 text-left">
-            <h2 className="text-5xl lg:text-6xl font-bold text-[#fffaec] title-stroke-dark">{t.about.title}</h2>
+            <h2 className="text-5xl lg:text-6xl font-bold text-site title-stroke-dark">{t.about.title}</h2>
             <p
               className="font-title text-xl lg:text-2xl text-stone-700 leading-relaxed mb-8"
               dangerouslySetInnerHTML={{ __html: t.hero.description }}

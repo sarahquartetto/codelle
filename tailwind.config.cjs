@@ -19,6 +19,9 @@ module.exports = {
           pale: '#EDE9FE',
           dark: '#4C1D95',
         },
+        site: {
+          DEFAULT: '#F9FAFB',
+        },
         ochre: {
           DEFAULT: '#C4A35A',
           light: '#D4B86A',

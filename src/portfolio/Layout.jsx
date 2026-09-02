@@ -4,7 +4,7 @@ import LanguageSwitcher from '../contexts/LanguageSwitcher'
 
 export default function Layout({ children }) {
   return (
-    <div className="min-h-screen bg-[#fffaec] relative overflow-hidden">
+    <div className="min-h-screen bg-site relative overflow-hidden">
       {/* <div className="site-grain" aria-hidden="true" /> */}
       {/* <BackgroundBlobs /> */}
 
