@@ -23,7 +23,7 @@ export default function Hero() {
   ]
 
   return (
-    <section id="home" className="min-h-screen flex flex-col box-border">
+    <section id="home" className="hero-screen min-h-screen flex flex-col box-border">
       <div className="hero-frame relative flex flex-1 flex-col min-h-0">
         <div className="hero-vortex" aria-hidden="true">
           <div className="hero-vortex__shape" />
@@ -55,7 +55,7 @@ export default function Hero() {
                   onClick={() => scrollTo(link.href)}
                   className="hero-nav-dot-btn pl-4 text-sm sm:text-lg font-medium tracking-wide text-brand hover:text-moss transition-colors duration-300 underline-offset-[6px] hover:underline leading-none"
                 >
-                  {link.label}
+                  <span className="hero-nav-dot-label">{link.label}</span>
                 </button>
               ))}
             </nav>
