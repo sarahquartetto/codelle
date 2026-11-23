@@ -1,5 +1,4 @@
 import React from 'react'
-import { CheckCircle } from 'lucide-react'
 import emailjs from '@emailjs/browser'
 import { useLanguage } from '../contexts/LanguageContext'
 import feuilleRose from '../assets/feuille-rose.svg'
@@ -7,16 +6,20 @@ import iconeEmail from '../assets/contact/icone-email.svg'
 import iconeLocalisation from '../assets/contact/icone-localisation.svg'
 import iconeTelephone from '../assets/contact/icone-telephone.svg'
 import iconeAvion from '../assets/contact/icone-avion-papier.svg'
+import iconeMessageEnvoye from '../assets/contact/icone-message-envoye.svg'
+import iconeMessageErreur from '../assets/contact/icone-message-erreur.svg'
 
 export default function Contact() {
   const { t } = useLanguage()
   const [formData, setFormData] = React.useState({ name: '', email: '', message: '' })
   const [isSubmitting, setIsSubmitting] = React.useState(false)
   const [isSuccess, setIsSuccess] = React.useState(false)
+  const [submitError, setSubmitError] = React.useState(false)
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     setIsSubmitting(true)
+    setSubmitError(false)
 
     try {
       const serviceId = 'service_o2agbrt'
@@ -41,7 +44,7 @@ export default function Contact() {
     } catch (error) {
       console.error('Error sending email:', error)
       console.error('Error details:', error.text || error.message)
-      alert(`${t.contact.error}: ${error.text || error.message}`)
+      setSubmitError(true)
     } finally {
       setIsSubmitting(false)
     }
@@ -117,12 +120,12 @@ export default function Contact() {
               className="contact-form-leaf pointer-events-none absolute z-10 w-8 -top-3 -right-1.5 sm:w-10 sm:-top-4 sm:-right-3"
             />
             {isSuccess ? (
-              <div className="text-center py-8">
+              <div className="text-center py-10 px-6 rounded-xl bg-[#fff8e5] border-[1.5px] lg:border-[1.75px] border-[#f58c76]" role="status">
                 <div className="flex justify-center mb-4">
-                  <CheckCircle className="w-16 h-16 text-[#F3EFE6]" />
+                  <img src={iconeMessageEnvoye} alt="" aria-hidden="true" className="w-16 h-16" />
                 </div>
-                <h3 className="text-2xl font-semibold text-[#F3EFE6] mb-2">{t.contact.success}</h3>
-                <p className="text-[#F3EFE6]/90">{t.contact.thankYou}</p>
+                <h3 className="text-2xl font-semibold text-[#2C2A26] mb-2">{t.contact.success}</h3>
+                <p className="text-[#6e4a2c]">{t.contact.thankYou}</p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -173,6 +176,15 @@ export default function Contact() {
                     ></textarea>
                   </div>
                 </div>
+                {submitError && (
+                  <div
+                    className="text-center rounded-xl bg-[#fff8e5] border-[1.5px] lg:border-[1.75px] border-[#f58c76] px-4 py-5"
+                    role="alert"
+                  >
+                    <img src={iconeMessageErreur} alt="" aria-hidden="true" className="w-16 h-16 mx-auto mb-3" />
+                    <p className="font-medium leading-snug text-[#2C2A26]">{t.contact.error}</p>
+                  </div>
+                )}
                 <button
                   type="submit"
                   disabled={isSubmitting}
