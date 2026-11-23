@@ -17,13 +17,21 @@ export default function Portfolio() {
       <Skills />
       <Projects />
       <Contact />
-      <footer className="relative z-10 bg-brand-dark text-stone-200 py-12 mt-16">
+      <footer className="relative z-10 border-t border-brand-muted/15 bg-site text-ink py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <div className="pt-0">
-              <p className="text-white/70">© {new Date().getFullYear()} codelle. {t.footer.copyright}</p>
-              <div className="mt-2">
-                <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-white/10 text-white/80 text-sm">
+            <div className="pt-0 flex flex-col items-center">
+              <img
+                src="/codelle-badge-spiral.png"
+                alt=""
+                aria-hidden="true"
+                className="mb-4 h-10 w-10 sm:h-12 sm:w-12 object-contain"
+                loading="lazy"
+                decoding="async"
+              />
+              <p className="text-ink-muted text-sm tracking-wide">© {new Date().getFullYear()} codelle. {t.footer.copyright}</p>
+              <div className="mt-3">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-brand-muted/25 bg-site-elevated text-ink-muted text-sm">
                   🇨🇭 {t.footer.swissMade}
                 </span>
               </div>

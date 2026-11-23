@@ -1,32 +1,17 @@
 import React from 'react'
 
 const blobs = [
-  // Hero
-  { color: 'bg-amber-400', size: 'w-[28rem] h-[28rem]', position: 'top-[3%] left-[1%]', delay: '' },
-  { color: 'bg-terracotta-soft', size: 'w-[26rem] h-[26rem]', position: 'top-[8%] right-[-6%]', delay: 'delay-1000' },
-  { color: 'bg-green-400', size: 'w-[34rem] h-[34rem]', position: '-top-24 left-[52%]', delay: 'delay-300' },
-  { color: 'bg-green-400', size: 'w-[30rem] h-[30rem]', position: 'top-[18%] left-[8%]', delay: 'delay-500' },
-  { color: 'bg-amber-400', size: 'w-[22rem] h-[22rem]', position: 'top-[22%] right-[18%]', delay: 'delay-700' },
-  // About
-  { color: 'bg-terracotta-soft', size: 'w-[32rem] h-[32rem]', position: 'top-[30%] right-[-8%]', delay: 'delay-300' },
-  { color: 'bg-green-400', size: 'w-[24rem] h-[24rem]', position: 'top-[36%] left-[-6%]', delay: 'delay-1000' },
-  { color: 'bg-amber-400', size: 'w-[28rem] h-[28rem]', position: 'top-[42%] left-[30%]', delay: '' },
-  // Skills
-  { color: 'bg-green-400', size: 'w-[30rem] h-[30rem]', position: 'top-[48%] right-[2%]', delay: 'delay-500' },
-  { color: 'bg-terracotta-soft', size: 'w-[26rem] h-[26rem]', position: 'top-[52%] left-[10%]', delay: 'delay-700' },
-  { color: 'bg-amber-400', size: 'w-[22rem] h-[22rem]', position: 'top-[56%] right-[28%]', delay: 'delay-300' },
-  // Projects
-  { color: 'bg-paleGreen-soft', size: 'w-[28rem] h-[28rem]', position: 'top-[62%] left-[-4%]', delay: 'delay-1000' },
-  { color: 'bg-paleGreen-soft', size: 'w-[32rem] h-[32rem]', position: 'top-[66%] right-[-6%]', delay: '' },
-  { color: 'bg-amber-400', size: 'w-[24rem] h-[24rem]', position: 'top-[72%] left-[22%]', delay: 'delay-500' },
-  { color: 'bg-green-400', size: 'w-[26rem] h-[26rem]', position: 'top-[76%] right-[14%]', delay: 'delay-700' },
-  // Contact
-  { color: 'bg-amber-400', size: 'w-[30rem] h-[30rem]', position: 'top-[82%] left-[4%]', delay: 'delay-300' },
-  { color: 'bg-green-400', size: 'w-[28rem] h-[28rem]', position: 'top-[88%] right-[8%]', delay: 'delay-1000' },
-  { color: 'bg-terracotta-soft', size: 'w-[24rem] h-[24rem]', position: 'top-[92%] left-[35%]', delay: '' },
+  { color: 'bg-moss', size: 'w-[42rem] h-[42rem]', position: 'top-[-8%] left-[-10%]', delay: '' },
+  { color: 'bg-moss-soft', size: 'w-[46rem] h-[46rem]', position: 'top-[18%] left-[32%]', delay: 'delay-300' },
+  { color: 'bg-honey-soft', size: 'w-[36rem] h-[36rem]', position: 'top-[28%] left-[-8%]', delay: 'delay-700' },
+  { color: 'bg-honey-pale', size: 'w-[34rem] h-[34rem]', position: 'top-[52%] left-[18%]', delay: '' },
+  { color: 'bg-moss', size: 'w-[40rem] h-[40rem]', position: 'top-[68%] right-[-14%]', delay: 'delay-1000' },
+  { color: 'bg-honey', size: 'w-[38rem] h-[38rem]', position: 'top-[78%] left-[-6%]', delay: 'delay-300' },
+  { color: 'bg-moss-soft', size: 'w-[42rem] h-[42rem]', position: 'top-[88%] right-[-8%]', delay: 'delay-700' },
+  { color: 'bg-honey-soft', size: 'w-[36rem] h-[36rem]', position: 'top-[94%] left-[30%]', delay: 'delay-500' },
 ]
 
-const CURSOR_BLOB_SIZE = 224 // w-56 = 14rem = 224px
+const CURSOR_BLOB_SIZE = 280
 
 export default function BackgroundBlobs() {
   const cursorBlobRef = React.useRef(null)
@@ -56,13 +41,13 @@ export default function BackgroundBlobs() {
   return (
     <>
       <div
-        className="pointer-events-none absolute inset-0 z-0 overflow-visible opacity-10"
+        className="pointer-events-none absolute inset-0 z-0 overflow-hidden opacity-[0.06]"
         aria-hidden="true"
       >
         {blobs.map((blob, index) => (
           <div
             key={index}
-            className={`absolute ${blob.size} ${blob.color} ${blob.position} rounded-full mix-blend-multiply filter blur-xl animate-pulse ${blob.delay}`}
+            className={`absolute ${blob.size} ${blob.color} ${blob.position} rounded-full mix-blend-multiply filter blur-3xl animate-pulse ${blob.delay}`}
           />
         ))}
       </div>
@@ -70,7 +55,7 @@ export default function BackgroundBlobs() {
       {showCursorBlob && (
         <div
           ref={cursorBlobRef}
-          className="pointer-events-none fixed top-0 left-0 z-0 h-56 w-56 rounded-full bg-amber-300 opacity-[0.05] mix-blend-multiply blur-xl will-change-transform"
+          className="pointer-events-none fixed top-0 left-0 z-0 h-[17.5rem] w-[17.5rem] rounded-full bg-honey opacity-[0.04] mix-blend-multiply blur-3xl will-change-transform"
           aria-hidden="true"
         />
       )}

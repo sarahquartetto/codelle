@@ -13,8 +13,9 @@ const projects = [
       fr: 'Site web pour une association caritative suisse qui soutient la population locale en Bolivie.'
     },
     tags: ['Design', 'Integration', 'Deploiement'],
-    demo: 'https://staging-idh.sarah-tech-lab.ch',
-    image: idhImg
+    demo: 'https://idhsuisse.ch',
+    image: idhImg,
+    imagePosition: 'left top'
   },
   {
     slug: 'le-carrosse',
@@ -27,7 +28,7 @@ const projects = [
       fr: 'Site web pour une boutique en ligne suisse de revente dans l\'art de la table.'
     },
     tags: ['Design', 'Integration', 'Deploiement'],
-    demo: 'https://le-carrosse.sarah-tech-lab.ch',
+    demo: 'https://le-carrosse.com',
     image: leCarrosseImg
   }
 ]

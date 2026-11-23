@@ -6,7 +6,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        title: ['"Made Tommy"', 'sans-serif'],
+        sans: ['"DM Sans"', 'system-ui', 'sans-serif'],
+        title: ['"DM Sans"', 'system-ui', 'sans-serif'],
         pixel: ['"Press Start 2P"', 'system-ui', 'sans-serif'],
       },
       spacing: {
@@ -15,31 +16,38 @@ module.exports = {
       },
       colors: {
         brand: {
-          DEFAULT: '#8B5CF6',
-          pale: '#EDE9FE',
-          dark: '#4C1D95',
+          DEFAULT: '#657620',
+          soft: '#849B3A',
+          pale: '#C5D48A',
+          muted: '#A3B55C',
+          dark: '#3F4A14',
+        },
+        // Or / gold
+        honey: {
+          DEFAULT: '#EFBD21',
+          soft: '#F5D15A',
+          pale: '#F9E39A',
+          dark: '#B89010',
+        },
+        // Corail
+        moss: {
+          DEFAULT: '#F58C76',
+          soft: '#F8A998',
+          pale: '#FCD0C6',
+          dark: '#D46B55',
         },
         site: {
-          DEFAULT: '#F9FAFB',
+          DEFAULT: '#FAF8F3',
+          raised: '#F5F2EB',
+          elevated: '#F0ECE4',
         },
-        ochre: {
-          DEFAULT: '#C4A35A',
-          light: '#D4B86A',
-          soft: '#E8D5A3',
-        },
-        paleGreen: {
-          DEFAULT: '#A8C5A0',
-          soft: '#C5D9BF',
-        },
-        terracotta: {
-          DEFAULT: '#F97316',
-          soft: '#FB923C',
-          deep: '#EA580C',
+        ink: {
+          DEFAULT: '#2C2A26',
+          muted: '#6B6560',
+          faint: '#9A9288',
         },
       },
     },
   },
   plugins: [],
 }
-
-

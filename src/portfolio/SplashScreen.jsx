@@ -4,7 +4,7 @@ export default function SplashScreen({ onFinish }) {
   const [exiting, setExiting] = React.useState(false)
 
   React.useEffect(() => {
-    const spinTimer = window.setTimeout(() => setExiting(true), 2000)
+    const spinTimer = window.setTimeout(() => setExiting(true), 2600)
     return () => window.clearTimeout(spinTimer)
   }, [])
 
@@ -32,12 +32,11 @@ export default function SplashScreen({ onFinish }) {
       aria-hidden={exiting}
       aria-label="Chargement"
     >
-      {/* <div className="site-grain" aria-hidden="true" /> */}
       <img
-        src="/mini-logo-codelle-violet2.png"
+        src="/loader-1-trace.svg"
         alt=""
         aria-hidden="true"
-        className="splash-logo-spin relative z-10 h-28 w-28 sm:h-36 sm:w-36 object-contain select-none"
+        className="relative z-10 h-28 w-28 sm:h-36 sm:w-36 object-contain select-none"
         decoding="async"
       />
     </div>

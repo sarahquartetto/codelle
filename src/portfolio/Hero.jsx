@@ -1,5 +1,4 @@
 import React from 'react'
-import { ChevronDown } from 'lucide-react'
 import { useLanguage } from '../contexts/LanguageContext'
 
 export default function Hero() {
@@ -24,48 +23,67 @@ export default function Hero() {
   ]
 
   return (
-    <section className="min-h-screen flex flex-col relative border-[32px] sm:border-[40px] border-brand box-border">
-      <div className="flex-1 flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 py-20">
-        <div className="flex flex-col items-center text-center gap-8 z-10 relative w-full max-w-3xl">
-          <h1 className="flex w-full justify-center">
-            <img
-              src="/logo-codelle-2.png"
-              alt="codelle"
-              className="w-full max-w-sm sm:max-w-md lg:max-w-lg h-auto object-contain mix-blend-screen"
-              loading="eager"
-              decoding="async"
-            />
-          </h1>
-
-          <nav className="hero-nav-dots flex flex-wrap justify-center gap-x-6 gap-y-3" aria-label="Section navigation">
-            {navLinks.map((link) => (
-              <button
-                key={link.href}
-                type="button"
-                onClick={() => scrollTo(link.href)}
-                className="hero-nav-dot-btn font-pixel pl-3.5 text-xs sm:text-sm text-stone-700 hover:text-brand transition-colors duration-200 underline-offset-4 underline leading-relaxed"
-              >
-                {link.label}
-              </button>
-            ))}
-          </nav>
+    <section id="home" className="min-h-screen flex flex-col box-border">
+      <div className="hero-frame relative flex flex-1 flex-col min-h-0">
+        <div className="hero-vortex" aria-hidden="true">
+          <div className="hero-vortex__shape" />
         </div>
+
+        <div className="relative z-[1] flex-1 flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+          <div className="hero-brand-stack flex flex-col items-center justify-center text-center z-10 relative w-full max-w-sm sm:max-w-md lg:max-w-lg">
+            <h1 className="flex w-full justify-center leading-none">
+              <span className="hero-logo-gradient w-full">
+                <img
+                  src="/codelle-logo-degrade-corail.png"
+                  alt="codelle"
+                  width="2172"
+                  height="724"
+                  loading="eager"
+                  decoding="async"
+                />
+              </span>
+            </h1>
+
+            <nav
+              className="hero-nav-dots flex flex-wrap justify-between items-center w-[94%] sm:w-[95%] gap-y-2"
+              aria-label="Section navigation"
+            >
+              {navLinks.map((link) => (
+                <button
+                  key={link.href}
+                  type="button"
+                  onClick={() => scrollTo(link.href)}
+                  className="hero-nav-dot-btn pl-4 text-sm sm:text-lg font-medium tracking-wide text-brand hover:text-moss transition-colors duration-300 underline-offset-[6px] hover:underline leading-none"
+                >
+                  {link.label}
+                </button>
+              ))}
+            </nav>
+          </div>
+        </div>
+
+        <button
+          type="button"
+          onClick={() => scrollTo('#about')}
+          aria-label={t.hero?.scrollDown || 'Scroll down'}
+          className={`absolute bottom-6 left-1/2 -translate-x-1/2 z-10 transition-opacity duration-500 ${
+            showScrollHint ? 'opacity-100' : 'opacity-0 pointer-events-none'
+          }`}
+        >
+          <svg className="scroll-hint-kawaii w-9 h-auto" viewBox="0 0 40 48" aria-hidden="true">
+            <g className="scroll-hint-kawaii__bob">
+              <g className="scroll-hint-kawaii__chevron scroll-hint-kawaii__chevron--top">
+                <path d="M9 12 L20 21 L31 12" fill="none" stroke="#f58c76" strokeWidth="4.3" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M9 12 L20 21 L31 12" fill="none" stroke="#fff1ee" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round" />
+              </g>
+              <g className="scroll-hint-kawaii__chevron scroll-hint-kawaii__chevron--bottom">
+                <path d="M9 25 L20 34 L31 25" fill="none" stroke="#f58c76" strokeWidth="4.3" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M9 25 L20 34 L31 25" fill="none" stroke="#fcd0c6" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round" />
+              </g>
+            </g>
+          </svg>
+        </button>
       </div>
-
-     {/*} <p className="w-full max-w-[94vw] mx-auto px-4 sm:px-6 pb-28 text-center text-xl lg:text-2xl text-stone-600 leading-relaxed">
-        {t.hero?.description || 'A Swiss web developer crafting beautiful, functional digital experiences with modern technologies.'}
-      </p>*/}
-
-      <button
-        type="button"
-        onClick={() => scrollTo('#about')}
-        aria-label={t.hero?.scrollDown || 'Scroll down'}
-        className={`absolute bottom-8 left-1/2 -translate-x-1/2 z-10 text-brand hover:text-brand/80 transition-opacity duration-500 ${
-          showScrollHint ? 'opacity-100' : 'opacity-0 pointer-events-none'
-        }`}
-      >
-        <ChevronDown className="scroll-hint-chevron w-7 h-7" strokeWidth={2.5} aria-hidden="true" />
-      </button>
     </section>
   )
 }

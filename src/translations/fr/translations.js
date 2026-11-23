@@ -13,7 +13,7 @@ export const translations = {
     available: 'Disponible en freelance',
     greeting: 'Bienvenue!',
     name: 'Développeuse web',
-    description: 'Moi, c\'est Sarah. Je suis <span class="font-bold text-brand">développeuse full stack</span> Suisse, et je me spécialise en assurance qualité.',
+    description: 'Moi, c\'est Sarah. Je suis <span class="font-semibold text-ink">développeuse full stack</span> et je viens de Suisse.',
     viewWork: 'Voir mes projets',
     getInTouch: 'Me contacter',
     scrollDown: 'Faire défiler'
@@ -24,7 +24,24 @@ export const translations = {
     title: 'A propos',
     paragraph1: 'Après 15 ans de carrière dans les secteurs de la production audiovisuelle, du marketing et de la communication digitale, j\'ai achevé ma reconversion professionnelle vers le développement web. J\'applique désormais mes compétences techniques, créatives et relationnelles pour développer des applications web dynamiques, réactives et centrées sur l\'utilisateur. ',
     paragraph2: 'Ayant travaillé quotidiennement avec des clients issus d\'environnements et de cultures très variés, j\'ai développé une forte aptitude à la communication et à la gestion de la relation client. Je considère cette compétence comme un atout essentiel dans un environnement professionnel. ',
-    paragraph3: 'Incorporant l\'IA dans ma démarche de développement, je continue d\'apprendre et de m\'adapter aux nouvelles technologies pour concevoir des solutions efficaces, durables et responsables.',
+    paragraph3: 'Autodidacte dans l\'âme, j\'apprends en continu pour proposer des solutions efficaces, durables, et adaptées à chaque projet.',
+    services: {
+      title: 'Ce que je propose',
+      items: [
+        {
+          label: 'Je construis',
+          description: 'Design, intégration, hébergement et mise en ligne — votre site de A à Z.',
+        },
+        {
+          label: 'Je transforme',
+          description: 'Refonte et restructuration d\'un site existant.',
+        },
+        {
+          label: 'Je rends visible',
+          description: 'Optimisation SEO pour apparaître rapidement sur Google et toutes les IA.',
+        },
+      ],
+    },
     highlights: {
       cleanCode: 'Code propre',
       cleanCodeDesc: 'Écrire un code propre, performant capable de résister à l\'épreuve du temps',
@@ -36,7 +53,7 @@ export const translations = {
   // Skills Section
   skills: {
     title: 'Compétences & Technologies',
-    titleLines: ['Compétences', '&', 'Technologies'],
+    titleLines: ['Compétences', '& Technologies'],
     description: 'Frontend, Backend, <span class="font-bold">Full Stack</span>'
   },
 
@@ -68,6 +85,11 @@ export const translations = {
     success: 'Message envoyé !',
     thankYou: 'Merci de m\'avoir contactée. Je vous répondrai dans les 24 heures.',
     error: 'Désolée, il y a eu une erreur lors de l\'envoi de votre message'
+  },
+
+  sayHi: {
+    label: 'oh hello!',
+    aria: 'Oh hello — aller au contact'
   },
 
   // Footer

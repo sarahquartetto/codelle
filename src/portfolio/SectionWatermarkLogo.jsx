@@ -42,7 +42,7 @@ export default function SectionWatermarkLogo({ align = 'left', contained = false
         : 'top-0 -translate-y-[58%]'
 
   const logoClasses = [
-    'section-watermark-logo h-full w-full object-contain opacity-[0.08] select-none',
+    'section-watermark-logo h-full w-full object-contain opacity-[0.14] select-none',
     inView && (reducedMotion ? 'is-revealed' : 'is-visible'),
   ]
     .filter(Boolean)
@@ -55,7 +55,7 @@ export default function SectionWatermarkLogo({ align = 'left', contained = false
       className={`pointer-events-none absolute z-0 h-[min(88vw,36rem)] sm:h-[min(82vw,40rem)] lg:h-[min(76vw,44rem)] aspect-square w-auto max-w-none ${verticalClasses} ${horizontalClasses}`}
     >
       <img
-        src="/mini-logo-codelle-violet2.png"
+        src="/codelle-logo-degrade-corail.png"
         alt=""
         className={logoClasses}
         loading="lazy"

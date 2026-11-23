@@ -1,8 +1,6 @@
 import React from 'react'
 import { useLanguage } from '../contexts/LanguageContext'
-import SectionWatermarkLogo from './SectionWatermarkLogo'
 
-// Import icons
 import javascriptIcon from '../assets/web dev icons/javascript-logo-javascript-icon-transparent-free-png.webp'
 import wordpressIcon from '../assets/web dev icons/wordpress.png'
 import reactIcon from '../assets/web dev icons/React-icon.svg.png'
@@ -14,9 +12,34 @@ import premiereProIcon from '../assets/web dev icons/premiere-pro.svg'
 import logicProIcon from '../assets/web dev icons/logic-pro-x.png'
 import seleniumIcon from '../assets/web dev icons/selenium.png'
 import photoshopIcon from '../assets/web dev icons/photoshop.png'
+import seoIcon from '../assets/web dev icons/seo.svg'
+
+const LEAF_PATH = 'M0,12 C-4,10 -12,8 -12,2 C-16,0 -14,-8 -8,-7 C-8,-13 -2,-15 0,-12 C2,-15 8,-13 8,-7 C14,-8 16,0 12,2 C12,8 4,10 0,12 Z'
+
+function SkillLeaf({ id }) {
+  return (
+    <i className="skill-petal" aria-hidden="true">
+      <svg viewBox="-17 -16 34 36" width="24" height="26">
+        <defs>
+          <clipPath id={id}>
+            <path d={LEAF_PATH} />
+          </clipPath>
+        </defs>
+        <path d={LEAF_PATH} fill="#f3a9b8" />
+        <path d="M0 -16 L18 -16 L18 20 L2 20 C3 8 5 -4 0 -16 Z" fill="#f7c2cc" clipPath={`url(#${id})`} />
+        <path d={LEAF_PATH} fill="none" stroke="#6e4a2c" strokeWidth="2.2" strokeLinejoin="round" />
+        <path d="M0,-6 L0,10 M0,3 L-6,-2 M0,3 L6,-2 M0,10 L-3.5,16" fill="none" stroke="#6e4a2c" strokeWidth="2" strokeLinecap="round" />
+      </svg>
+    </i>
+  )
+}
 
 export default function Skills() {
   const { t } = useLanguage()
+  const sectionRef = React.useRef(null)
+  const [entered, setEntered] = React.useState(false)
+  const [done, setDone] = React.useState(false)
+  const [popIndex, setPopIndex] = React.useState(-1)
 
   const tools = [
     { name: 'JavaScript', icon: javascriptIcon, mediumIcon: true },
@@ -26,64 +49,12 @@ export default function Skills() {
     { name: 'MongoDB', icon: mongodbIcon, mediumIcon: true },
     { name: 'REST APIs', icon: restApiIcon, roundedIcon: true },
     { name: 'Wordpress', icon: wordpressIcon, fillIcon: true },
-  ]
-
-  const creativeTools = [
     { name: 'Photoshop', icon: photoshopIcon, roundedIcon: true, cropIcon: true },
     { name: 'Première Pro', icon: premiereProIcon, roundedIcon: true },
     { name: 'Logic Pro X', icon: logicProIcon, mediumIcon: true },
     { name: 'Selenium', icon: seleniumIcon, fillIcon: true, fillScale: 1.25 },
+    { name: 'SEO', icon: seoIcon, mediumIcon: true },
   ]
-
-  const allTools = [...tools, ...creativeTools]
-  const splitIndex = Math.ceil(allTools.length / 2)
-  const leftColumnTools = allTools.slice(0, splitIndex)
-  const rightColumnTools = allTools.slice(splitIndex)
-
-  /*
-  const iconClassName = (tool) => {
-    if (tool.smallIcon) {
-      return 'w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 object-contain'
-    }
-    return 'w-16 h-16 md:w-[4.5rem] md:h-[4.5rem] lg:w-20 lg:h-20 object-contain'
-  }
-
-  const renderBubbles = (items, delayOffset = 0) =>
-    items.map((tool, index) => (
-      <div
-        key={tool.name}
-        title={tool.name}
-        className="w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-full bg-white/70 backdrop-blur-sm border border-stone-200/50 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 flex items-center justify-center animate-float"
-        style={{
-          animationDelay: `${(index + delayOffset) * 0.5}s`
-        }}
-      >
-        {tool.roundedIcon ? (
-          <span className="w-14 h-14 md:w-16 md:h-16 lg:w-[4.5rem] lg:h-[4.5rem] overflow-hidden rounded-full border-2 border-white shrink-0">
-            <img
-              src={tool.icon}
-              alt={tool.name}
-              className={`h-full w-full object-cover ${tool.cropIcon ? 'scale-125' : ''}`}
-            />
-          </span>
-        ) : tool.fillIcon ? (
-          <span className="w-16 h-16 md:w-[4.5rem] md:h-[4.5rem] lg:w-20 lg:h-20 overflow-hidden rounded-full shrink-0">
-            <img
-              src={tool.icon}
-              alt={tool.name}
-              className="h-full w-full object-cover scale-[1.45]"
-            />
-          </span>
-        ) : (
-          <img
-            src={tool.icon}
-            alt={tool.name}
-            className={iconClassName(tool)}
-          />
-        )}
-      </div>
-    ))
-  */
 
   const renderMiniIcon = (tool) => {
     if (tool.roundedIcon || tool.fillIcon) {
@@ -101,162 +72,75 @@ export default function Skills() {
       <img
         src={tool.icon}
         alt=""
-        className={`absolute inset-0 m-auto object-contain ${tool.mediumIcon ? 'h-6 w-6' : tool.smallIcon ? 'h-4 w-4' : 'h-5 w-5'}`}
+        className={`absolute inset-0 m-auto object-contain ${tool.mediumIcon ? 'h-6 w-6' : 'h-5 w-5'}`}
       />
     )
   }
 
-  const countLetters = (name) => [...name.replace(/ /g, '')].length
+  React.useEffect(() => {
+    const section = sectionRef.current
+    if (!section) return undefined
 
-  const animationOrder = React.useMemo(() => {
-    const ordered = []
-    const maxLen = Math.max(leftColumnTools.length, rightColumnTools.length)
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    const count = tools.length
+    let last = -1
+    let intervalId
+    let startId
+    let clearId
 
-    for (let i = 0; i < maxLen; i += 1) {
-      if (leftColumnTools[i]) ordered.push(leftColumnTools[i])
-      if (rightColumnTools[i]) ordered.push(rightColumnTools[i])
+    const pop = () => {
+      let next = last
+      do {
+        next = Math.floor(Math.random() * count)
+      } while (next === last && count > 1)
+      last = next
+      setPopIndex(next)
+      window.clearTimeout(clearId)
+      clearId = window.setTimeout(() => setPopIndex(-1), 1700)
     }
 
-    return ordered
-  }, [leftColumnTools, rightColumnTools])
-
-  const toolStartIndex = React.useMemo(() => {
-    const map = new Map()
-    let offset = 0
-
-    animationOrder.forEach((tool) => {
-      map.set(tool.name, offset)
-      offset += countLetters(tool.name)
-    })
-
-    return map
-  }, [animationOrder])
-
-  const totalLetters = animationOrder.reduce((sum, tool) => sum + countLetters(tool.name), 0)
-  const staggerSec = 0.11
-  const cycleDuration = Math.max(totalLetters * staggerSec, 2.5)
-
-  const letterJumpKeyframes = React.useMemo(() => {
-    const slot = 100 / totalLetters
-
-    return Array.from({ length: totalLetters }, (_, index) => {
-      const start = index * slot
-      const peak = start + slot * 0.28
-      const end = start + slot * 0.52
-
-      return `
-        @keyframes skill-jump-${index} {
-          0%, ${start.toFixed(4)}%, ${end.toFixed(4)}%, 100% {
-            transform: translateY(0);
-          }
-          ${peak.toFixed(4)}% {
-            transform: translateY(-7px);
-          }
-        }
-      `
-    }).join('\n')
-  }, [totalLetters])
-
-  const toolDotIndex = React.useMemo(() => {
-    const map = new Map()
-    animationOrder.forEach((tool, index) => map.set(tool.name, index))
-    return map
-  }, [animationOrder])
-
-  const skillDotKeyframes = React.useMemo(() => {
-    const letterSlotPercent = 100 / totalLetters
-
-    return animationOrder.map((tool, index) => {
-      const startIndex = toolStartIndex.get(tool.name) ?? 0
-      const letterCount = countLetters(tool.name)
-      const start = startIndex * letterSlotPercent
-      const end = (startIndex + letterCount) * letterSlotPercent
-      const popIn = start + letterSlotPercent * 0.35
-      const popSettle = start + letterSlotPercent * 0.75
-      const fadeOut = Math.max(popSettle, end - letterSlotPercent * 0.35)
-
-      return `
-        @keyframes skill-dot-${index} {
-          0%,
-          ${Math.max(0, start - 0.001).toFixed(4)}%,
-          ${end.toFixed(4)}%,
-          100% {
-            opacity: 0;
-            transform: translateY(-50%) scale(0);
-          }
-          ${popIn.toFixed(4)}% {
-            opacity: 1;
-            transform: translateY(-50%) scale(1.3);
-          }
-          ${popSettle.toFixed(4)}%,
-          ${fadeOut.toFixed(4)}% {
-            opacity: 1;
-            transform: translateY(-50%) scale(1);
-          }
-        }
-      `
-    }).join('\n')
-  }, [animationOrder, toolStartIndex, totalLetters])
-
-  const renderAnimatedName = (name) => {
-    let letterIndex = toolStartIndex.get(name) ?? 0
-
-    return [...name].map((char, charIndex) => {
-      if (char === ' ') {
-        return (
-          <span key={`${name}-space-${charIndex}`} className="inline-block w-[0.35em]" aria-hidden="true">
-            {' '}
-          </span>
-        )
+    const start = () => {
+      if (reduce) {
+        setEntered(true)
+        setDone(true)
+        return
       }
+      setEntered(true)
+      startId = window.setTimeout(() => {
+        setDone(true)
+        pop()
+        intervalId = window.setInterval(pop, 2200)
+      }, count * 80 + 700)
+    }
 
-      const currentIndex = letterIndex
-      letterIndex += 1
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return
+        start()
+        observer.disconnect()
+      },
+      { threshold: 0.3 }
+    )
 
-      return (
-        <span
-          key={`${name}-char-${charIndex}`}
-          className="skill-letter-bounce inline-block"
-          style={{
-            animation: `skill-jump-${currentIndex} ${cycleDuration}s ease-in-out infinite`,
-          }}
-        >
-          {char}
-        </span>
-      )
-    })
-  }
-
-  const renderSkillList = (items) => (
-    <ul className="mx-auto w-fit space-y-3 sm:space-y-4 md:mx-0 md:w-full">
-      {items.map((tool) => (
-        <li
-          key={tool.name}
-          className="flex items-center justify-center gap-3 sm:gap-4 md:justify-start"
-        >
-          <span className="relative flex h-9 w-9 shrink-0 overflow-hidden rounded-full border border-stone-200/70 bg-white/80 shadow-sm">
-            {renderMiniIcon(tool)}
-          </span>
-          <span
-            className="skill-title-dot font-pixel text-xs sm:text-sm text-stone-700 leading-tight pr-3.5"
-            aria-label={tool.name}
-            style={{ '--skill-dot-animation': `skill-dot-${toolDotIndex.get(tool.name) ?? 0}` }}
-          >
-            {renderAnimatedName(tool.name)}
-          </span>
-        </li>
-      ))}
-    </ul>
-  )
+    observer.observe(section)
+    return () => {
+      observer.disconnect()
+      window.clearTimeout(startId)
+      window.clearTimeout(clearId)
+      window.clearInterval(intervalId)
+    }
+  }, [tools.length])
 
   return (
-    <section id="skills" className="relative overflow-visible py-24">
-      <SectionWatermarkLogo align="left" />
-
+    <section id="skills" ref={sectionRef} className="relative overflow-visible py-24">
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
-          <div className="relative mx-auto w-full overflow-visible md:mx-0 md:w-fit md:pr-8">
-            <h2 className="relative z-10 text-5xl lg:text-6xl font-bold text-site text-center md:text-left leading-tight title-stroke-dark">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div className="relative mx-auto w-full overflow-visible lg:mx-0 lg:w-fit lg:pr-8">
+            <div
+              className="pointer-events-none absolute left-1/2 top-1/2 z-0 h-96 w-96 -translate-x-1/2 -translate-y-1/2 rounded-full bg-honey opacity-[0.1] blur-3xl sm:h-[28rem] sm:w-[28rem] lg:left-0 lg:translate-x-[-10%]"
+              aria-hidden="true"
+            />
+            <h2 className="relative z-10 text-5xl lg:text-6xl font-bold section-title text-center lg:text-left leading-tight">
               {t.skills.titleLines.map((line, index) => (
                 <span key={index} className="block">
                   {line}
@@ -265,61 +149,24 @@ export default function Skills() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-6 md:gap-x-12 justify-items-center md:justify-items-stretch">
-            {renderSkillList(leftColumnTools)}
-            {renderSkillList(rightColumnTools)}
+          <div className={`skill-board ${entered ? 'is-in' : ''} ${done ? 'is-done' : ''}`}>
+            <ul className="skill-list">
+              {tools.map((tool, index) => (
+                <li
+                  key={tool.name}
+                  className={`skill-chip ${popIndex === index ? 'is-pop' : ''}`}
+                  style={{ '--i': index }}
+                >
+                  <span className="skill-chip-icon">
+                    {renderMiniIcon(tool)}
+                  </span>
+                  <span className="whitespace-nowrap">{tool.name}</span>
+                  <SkillLeaf id={`skill-leaf-${index}`} />
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
-
-        <style>{`
-          .skill-title-dot {
-            position: relative;
-          }
-
-          .skill-title-dot::before {
-            content: '';
-            position: absolute;
-            right: 0;
-            left: auto;
-            top: 50%;
-            width: 0.4rem;
-            height: 0.4rem;
-            border-radius: 9999px;
-            background-color: #8B5CF6;
-            transform: translateY(-50%) scale(0);
-            opacity: 0;
-            animation-name: var(--skill-dot-animation);
-            animation-duration: ${cycleDuration}s;
-            animation-timing-function: ease;
-            animation-iteration-count: infinite;
-          }
-
-          ${skillDotKeyframes}
-
-          ${letterJumpKeyframes}
-
-          @media (prefers-reduced-motion: reduce) {
-            .skill-letter-bounce,
-            .skill-title-dot::before {
-              animation: none !important;
-            }
-
-            .skill-title-dot::before {
-              opacity: 0;
-            }
-          }
-        `}</style>
-
-        {/*
-        <div className="flex flex-wrap justify-center items-center gap-6 md:gap-8">
-          {renderBubbles(tools)}
-        </div>
-
-        <div className="mt-8 flex flex-wrap justify-center items-center gap-6 md:gap-8">
-          {renderBubbles(creativeTools, tools.length)}
-        </div>
-        */}
-
       </div>
     </section>
   )

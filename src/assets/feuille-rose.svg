@@ -1,0 +1,7 @@
+<svg viewBox="-17 -16 34 36" width="68" height="72" xmlns="http://www.w3.org/2000/svg">
+<defs><clipPath id="lfc"><path d="M0,12 C-4,10 -12,8 -12,2 C-16,0 -14,-8 -8,-7 C-8,-13 -2,-15 0,-12 C2,-15 8,-13 8,-7 C14,-8 16,0 12,2 C12,8 4,10 0,12 Z"/></clipPath></defs>
+<path d="M0,12 C-4,10 -12,8 -12,2 C-16,0 -14,-8 -8,-7 C-8,-13 -2,-15 0,-12 C2,-15 8,-13 8,-7 C14,-8 16,0 12,2 C12,8 4,10 0,12 Z" fill="#f3a9b8"/>
+<path d="M0 -16 L18 -16 L18 20 L2 20 C3 8 5 -4 0 -16 Z" fill="#f7c2cc" clip-path="url(#lfc)"/>
+<path d="M0,12 C-4,10 -12,8 -12,2 C-16,0 -14,-8 -8,-7 C-8,-13 -2,-15 0,-12 C2,-15 8,-13 8,-7 C14,-8 16,0 12,2 C12,8 4,10 0,12 Z" fill="none" stroke="#6e4a2c" stroke-width="1.9" stroke-linejoin="round"/>
+<path d="M0,-6 L0,10 M0,3 L-6,-2 M0,3 L6,-2 M0,-2 L-3.5,-6 M0,-2 L3.5,-6 M0,10 L-3.5,16" fill="none" stroke="#6e4a2c" stroke-width="1.7" stroke-linecap="round"/>
+</svg>
